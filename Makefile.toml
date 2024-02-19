@@ -1,0 +1,21 @@
+[tasks.riscy]
+command = "cargo"
+args = ["build"]
+
+[tasks.riscy-release]
+command = "cargo"
+args = ["build", "--release"]
+
+[tasks.format]
+command = "cargo"
+args = ["fmt"]
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.build]
+dependencies = ["clean", "format", "riscy"]
+
+[tasks.release]
+dependencies = ["clean", "format", "riscy-release"]
