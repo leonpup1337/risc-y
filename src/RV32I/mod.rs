@@ -1,4 +1,7 @@
-use std::{fs::File, io::{Read, Result}};
+use std::{
+    fs::File,
+    io::{Read, Result},
+};
 
 pub struct CPU {
     memory: RAM,
@@ -10,7 +13,13 @@ pub struct CPU {
 
 impl CPU {
     pub fn new() -> Self {
-        Self { memory: RAM::new(), running: true, xreg: [0; 32], pc: 0, dec_inst: None }
+        Self {
+            memory: RAM::new(),
+            running: true,
+            xreg: [0; 32],
+            pc: 0,
+            dec_inst: None,
+        }
     }
 
     pub fn run(&mut self) {
@@ -40,7 +49,9 @@ pub struct RAM {
 
 impl RAM {
     pub fn new() -> Self {
-        Self { mem: vec![0; 1073741824] }
+        Self {
+            mem: vec![0; 1073741824],
+        }
     }
 
     pub fn from_raw(mut raw: File) -> Result<RAM> {
